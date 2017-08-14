@@ -1,0 +1,31 @@
+
+<div class="pricetable"><div class="pricetable-inner">
+	<?php foreach($table as $i => $column) : ?>
+		<div class="<?php print implode(' ', $column['classes']) ?>" style="width:<?php print $column['width'] ?>%">
+			<div class="column-inner">
+				<div class="header">
+					<h3 class="name"><?php print $column['title'] ?></h3>
+					<h4 class="price"><?php print $column['price'] ?></h4>
+					<p><?php print $column['detail'] ?></p>
+				</div>
+				
+				<div class="features">
+					<?php foreach($column['features'] as $j => $feature) : ?>
+						<div class="feature <?php print $j == 0 ? 'first' : '' ?> <?php if(!empty($feature['description'])) print 'has_tooltip'; ?>">
+							<?php print $feature['title'] ?>
+						</div>
+					<?php endforeach ?>
+				</div>
+				
+				<?php $url = $column['url'] ?>
+				<div class="button-container">
+					<a href="<?php print empty($url) ? '#' : $url ?>"><span><?php print $column['button'] ?></span></a>
+				</div>
+				
+			</div>
+		</div>
+	<?php endforeach ?>
+	
+	
+	<div class="clear"></div>
+</div></div>
